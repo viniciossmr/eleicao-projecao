@@ -1,0 +1,3 @@
+numpy
+pandas
+matplotlib  # só para o grafico_linkedin.py

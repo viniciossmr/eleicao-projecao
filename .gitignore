@@ -1,0 +1,12 @@
+# dados brutos do TSE: grandes e baixáveis de novo pelos scripts
+dados/
+
+# saídas: só sobe o histórico, o painel final e o gráfico
+saida/*
+!saida/historico.csv
+!saida/painel.html
+!saida/modelo.html
+!saida/grafico_linkedin.png
+
+__pycache__/
+*.log
