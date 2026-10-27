@@ -7,6 +7,7 @@ usada também pelo projetar.py.
 Uso: py baixar_1turno.py
 """
 import json
+import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -23,7 +24,10 @@ def main():
     PASTA.mkdir(parents=True, exist_ok=True)
     if not CONFIG_MUN.exists():
         CONFIG_MUN.parent.mkdir(parents=True, exist_ok=True)
-        CONFIG_MUN.write_bytes(baixar(f"{BASE}/6258/config/{CONFIG_MUN.name}"))
+        bruto = baixar(f"{BASE}/6258/config/{CONFIG_MUN.name}")
+        if bruto is None:
+            sys.exit("não consegui baixar a lista de municípios do TSE; tente de novo")
+        CONFIG_MUN.write_bytes(bruto)
     cfg = json.loads(CONFIG_MUN.read_text(encoding="utf-8"))
     nomes = [f"{uf['cd']}{m['cd']}-{CARGO}-{E_T1}-u.json" for uf in cfg["abr"] for m in uf["mu"]]
     faltam = [n for n in nomes if not (PASTA / n).exists()]

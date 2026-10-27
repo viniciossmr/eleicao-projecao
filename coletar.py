@@ -5,7 +5,8 @@ Cada ciclo:
      totalizadas por município, sem votos;
   2. baixa os votos ({uf}{mun}-c0001-e006258-u.json) só dos municípios cujo
      número de seções totalizadas mudou desde o ciclo anterior;
-  3. baixa o total nacional (br-c0001-e006258-u.json).
+  3. baixa o total de cada UF ({uf}-c0001-e006258-u.json);
+  4. baixa o total nacional (br-c0001-e006258-u.json).
 
 Tudo é salvo cru (arquivos -ab compactados em .gz) em dados/snapshots/AAAAMMDD_HHMMSS/. Um snapshot contém só
 os municípios que mudaram; o estado num instante t = arquivo mais recente de

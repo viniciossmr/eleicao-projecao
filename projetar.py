@@ -45,7 +45,6 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 
 import modelo_v2
@@ -254,7 +253,7 @@ def calcular(estado):
             for c in r["votos"]:
                 if c not in candidatos:
                     candidatos.append(c)
-        # linha no histórico só com br e as 27 UFs do mesmo ciclo
+        # linha no histórico só com br e os totais das 27 UFs + exterior do mesmo ciclo
         completo = (snap / "ok").exists() and br is not None and len(uf_snap) == len(UFS_TOT)
         if not completo or not candidatos or not andamento:
             estado.vistos.add(snap.name)

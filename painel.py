@@ -8,6 +8,8 @@ import json
 
 import pandas as pd
 
+import modelo_v2
+
 REF = "LULA"  # candidato de referência nos gráficos (o outro é 100 − ele)
 COR = {"LULA": "#d6293e", "FLAVIO BOLSONARO": "#1f5fbf"}
 COR_OUTRO = "#6b7280"
@@ -126,7 +128,7 @@ def escrever(hist, df, candidatos, br, uf_tot, destino):
                    f'<div class="st-sub">{status[2]}</div></div>')
 
     aviso = ""
-    if tem_v2 and r_ref["n_mun_ajuste_v2"] < 30:
+    if tem_v2 and r_ref["n_mun_ajuste_v2"] < modelo_v2.MIN_MUN:
         aviso = ('<div class="aviso">Começo da apuração: poucas cidades contadas, projeção ainda '
                  'muito instável. Leia a margem, não só o número.</div>')
 
